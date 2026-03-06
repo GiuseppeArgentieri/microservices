@@ -3,10 +3,6 @@ using Scheduler.Application.Events.Queries.GetExample;
 
 namespace Scheduler.API.Endpoints;
 
-//public class GetExample
-//{
-//}
-
 public record GetExampleResponse(PaginatedResult<ExampleDto> Example);
 
 public class GetExample : ICarterModule

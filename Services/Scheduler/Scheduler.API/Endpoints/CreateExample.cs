@@ -3,9 +3,9 @@
 namespace Scheduler.API.Endpoints;
 
 //- Accepts a CreateExampleRequest object.
-//- Maps the request to a CreateOrderCommand.
+//- Maps the request to a ExampleEventCommand.
 //- Uses MediatR to send the command to the corresponding handler.
-//- Returns a response with the created order's ID.
+//- Returns a response with the created example's ID.
 
 public record CreateExampleRequest(ExampleDto ExampleDto);
 public record CreateExampleResponse(Guid Id);
@@ -22,7 +22,7 @@ public class CreateExample : ICarterModule
 
             var response = result.Adapt<CreateExampleResponse>();
 
-            return Results.Created($"/orders/{response.Id}", response);
+            return Results.Created($"/example/{response.Id}", response);
         })
         .WithName("CreateExample")
         .Produces<CreateExampleResponse>(StatusCodes.Status201Created)
