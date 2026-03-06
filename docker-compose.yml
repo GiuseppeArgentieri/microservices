@@ -1,0 +1,12 @@
+services:
+  schedulerdb:
+    image: mcr.microsoft.com/mssql/server
+
+  messagebroker:
+    image: rabbitmq:management
+
+  scheduler.api:
+    image: ${DOCKER_REGISTRY-}schedulerapi
+    build:
+      context: .
+      dockerfile: Services/Scheduler/Scheduler.API/Dockerfile
