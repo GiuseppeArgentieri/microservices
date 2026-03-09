@@ -1,11 +1,12 @@
-﻿using FluentValidation;
+﻿using BuildingBlocks.CQRS;
+using FluentValidation;
 using Mediator;
 
 namespace BuildingBlocks.Behaviors;
 public class ValidationBehavior<TRequest, TResponse>
     (IEnumerable<IValidator<TRequest>> validators)
     : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : notnull, ICommand<TResponse>
+    where TRequest : notnull, IComando<TResponse>
 {
     public async ValueTask<TResponse> Handle(TRequest request, MessageHandlerDelegate<TRequest, TResponse> next, CancellationToken cancellationToken)
     {

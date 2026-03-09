@@ -12,8 +12,8 @@ public class ExampleEventCommandValidator : AbstractValidator<ExampleEventComman
 {
     public ExampleEventCommandValidator()
     {
-        RuleFor(x => x.exampleDto.Id).NotNull().WithMessage("Id is required");
-        RuleFor(x => x.exampleDto.CustomerId).NotNull().WithMessage("CustomerId is required");
+        RuleFor(x => x.exampleDto.Id).NotEmpty().WithMessage("Id is required");
+        RuleFor(x => x.exampleDto.CustomerId).NotEmpty().WithMessage("CustomerId is required");
         RuleFor(x => x.exampleDto.OrderName).NotEmpty().WithMessage("OrderName should not be empty");
     }
 }
